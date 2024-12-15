@@ -36,10 +36,10 @@ And the insights are as follow:
 | Final Validation Accuracy | 40.71% |
 
 # Future Improvement
-<p align="center">
-<img src="./image/batch_loss.png" style="width: 50%; height: auto;">
-<img src="./image/batch_accuracy.png" style="width: 50%; height: auto;">
-</p>
+<div style="display: flex;">
+ <img src="./image/batch_loss.png" style="width: 50%; height: auto;margin-right: 10px;">
+ <img src="./image/batch_accuracy.png" style="width: 50%; height: auto;">
+</div>
 
 
  
