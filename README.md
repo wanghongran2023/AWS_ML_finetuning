@@ -37,8 +37,8 @@ And the insights are as follow:
 
 # Future Improvement
 <div style="display: flex;">
- <img src="./image/batch_loss.png" style="width: 50%; height: auto;margin-right: 10px;">
- <img src="./image/batch_accuracy.png" style="width: 50%; height: auto;">
+ <img src="./image/batch_loss.png" style="width: 30%; height: auto;margin-right: 10px;">
+ <img src="./image/batch_accuracy.png" style="width: 30%; height: auto;">
 </div>
 
 
