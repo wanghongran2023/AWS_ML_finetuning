@@ -29,4 +29,6 @@ And the insights are as follow:
 | Model Design | ResNet-34 with an additional fully connected (fc) layer. Residual blocks 1 to 3 of the pretrained ResNet-34 are frozen. |
 | Training Data | CIFAR-100 train dataset, which contains 50,000 images across 100 classes |
 | Test Data | CIFAR-100 test dataset, which contains 10,000 images across 100 classes |
+| Hyperparameters | For the demo, we tuned three hyperparameters: learning_rate, batch_size, and epochs 10 times. The best hyperparameter set found was {'learning_rate': 0.017483127170473314, 'batch_size': 128, 'epochs': 70} |
+
  
