@@ -25,7 +25,7 @@ This model demonstrates a fine-tuned version of ResNet-34 for image classificati
 And the insights are as follow: 
 
 | Item | Description |
-| ---------- | ---------- |
+| --------------- | ---------- |
 | Model Design | ResNet-34 with an additional fully connected (fc) layer. Residual blocks 1 to 3 of the pretrained ResNet-34 are frozen. |
 | Training Data | CIFAR-100 train dataset, which contains 50,000 images across 100 classes |
 | Test Data | CIFAR-100 test dataset, which contains 10,000 images across 100 classes |
