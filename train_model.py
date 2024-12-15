@@ -94,7 +94,8 @@ def train(model, train_loader, criterion, optimizer, device, epochs, hook):
             pred = pred.argmax(dim=1, keepdim=True)
             correct += pred.eq(target.view_as(pred)).sum().item()
             total += target.size(0)
-
+        hook.save_tensor("epochs_accuracy", torch.tensor(correct / total))
+        hook.save_tensor("epochs_loss", torch.tensor(running_loss / len(train_loader)))
         print(f"Epoch {e}: Loss {running_loss / len(train_loader)}, Accuracy {100 * correct / total}%")
 
 

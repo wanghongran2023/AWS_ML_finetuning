@@ -92,7 +92,7 @@ def train(model, train_loader, criterion, optimizer, device, epochs):
 
 
 def net():
-    model = models.resnet18(pretrained=True)
+    model = models.resnet34(pretrained=True)
     for param in model.parameters():
         param.requires_grad = False
     for param in model.layer4.parameters():
