@@ -88,8 +88,13 @@ response = sagemaker_runtime.invoke_endpoint(
 
 # About Sagemaker Debugger
 
-Sagemaker Debugger is a powerful tool that can help use to debug the model training process, you can use method like hook.save_tensor() to track the changement of important variable and understand the internal process of the model training.
-For example, in the taining code of this projcet I use hook.save_tensor() to track batch_loss,batch_accuracy,epochs_accuracy and epochs_loss.
+SageMaker Debugger is a powerful tool that can help us debug the model training process. It allows us to use methods like `hook.save_tensor()` to save specific tensors, monitor their changes during training and understand the internal workings of the training process.
+
+For example, in the training code of this project, I use `hook.save_tensor()` to track:  
+- batch_loss
+- batch_accuracy  
+- epochs_accuracy  
+- epochs_loss  
 
 ```python
 # You should import necessary libraries like boto3, base64 and json
@@ -125,8 +130,9 @@ def train(model, train_loader, criterion, optimizer, device, epochs, hook):
         print(f"Epoch {e}: Loss {running_loss / len(train_loader)}, Accuracy {100 * correct / total}%")
 ```
 
+
 <div style="display: flex;" align="center">
- <img src="./image/epochs_accuracy.pngg" style="width: 50%; height: auto;">
+ <img src="./image/epochs_accuracy.png" style="width: 50%; height: auto;">
 </div>
 
  
