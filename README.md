@@ -97,7 +97,6 @@ For example, in the training code of this project, I use `hook.save_tensor()` to
 - epochs_loss  
 
 ```python
-# You should import necessary libraries like boto3, base64 and json
 def train(model, train_loader, criterion, optimizer, device, epochs, hook):
     model.train()
     hook.set_mode(smd.modes.TRAIN)
@@ -130,6 +129,8 @@ def train(model, train_loader, criterion, optimizer, device, epochs, hook):
         print(f"Epoch {e}: Loss {running_loss / len(train_loader)}, Accuracy {100 * correct / total}%")
 ```
 
+Although the SageMaker Debugger is powerful, we need to use it carefully; otherwise, it may produce abnormal outputs.
+For example, if we display the epochs_accuracy data in the code above, we will get an image as bellow:
 
 <div style="display: flex;" align="center">
  <img src="./image/epochs_accuracy.png" style="width: 50%; height: auto;">
