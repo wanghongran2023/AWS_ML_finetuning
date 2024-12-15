@@ -86,6 +86,6 @@ response = sagemaker_runtime.invoke_endpoint(
 ```
 <br/>
 
-# About Sagemaker Debugger and Profiler
+# About Sagemaker Debugger
 
  
