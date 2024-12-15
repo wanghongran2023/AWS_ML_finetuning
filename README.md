@@ -24,9 +24,9 @@ This project contains four code files:
 This model demonstrates a fine-tuned version of ResNet-34 for image classification using the CIFAR-100 dataset. The training and evaluation process is monitored using SageMaker Debugger, which captures metrics such as batch loss, batch accuracy, epoch loss, and epoch accuracy. 
 And the insights are as follow: 
 
-| Model Design | Description                                                                 |
-|--------------|-----------------------------------------------------------------------------|
-| ResNet-34    | ResNet-34 with an additional fully connected (fc) layer. Layers 1 to 3 of the pretrained ResNet-34 are frozen. |
-
-
+| Item | Description |
+| ---------- | ---------- |
+| Model Design | ResNet-34 with an additional fully connected (fc) layer. Residual blocks 1 to 3 of the pretrained ResNet-34 are frozen. |
+| Training Data | CIFAR-100 train dataset, which contains 50,000 images across 100 classes |
+| Test Data | CIFAR-100 test dataset, which contains 10,000 images across 100 classes |
  
