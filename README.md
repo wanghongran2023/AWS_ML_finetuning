@@ -7,3 +7,12 @@ In this project, I will demonstrate how to fine-tune an image classification mod
 This project will use Jupyter Notebook for running the code, and the training and inference of the model will be performed on the SageMaker platform. You can upload the Jupyter notebook file to a SageMaker JupyterLab or Notebook instance, or you can run it on your local machine or EC2 instance ( In that case, you may not be able to use the sagemaker.get_execution_role() function. Instead, you should hard-code the ARN of the role you create.)
 
 Regardless of where you run the code, you will need to prepare an IAM role with permissions for both Amazon S3 and SageMaker.
+
+# Project Structure
+
+This project contains four code files:
+
+ - train_and_deploy.ipynb: The Jupyter notebook used to prepare the data, train the model, perform hyperparameter tuning, and deploy the model.
+ - hpo.py: The Python script used for hyperparameter optimization (HPO).
+ - train_model.py: The Python script used to train the model. This file is similar to hpo.py, with the primary difference being that it includes additional code for SageMaker Debugger and Profiler, which are not present in hpo.py.
+ - inference.py: The entry point for the SageMaker endpoint. Since we deploy a custom-trained model, this script helps process the input data, execute predictions, and send the response.
