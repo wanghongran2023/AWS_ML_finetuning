@@ -88,4 +88,45 @@ response = sagemaker_runtime.invoke_endpoint(
 
 # About Sagemaker Debugger
 
+Sagemaker Debugger is a powerful tool that can help use to debug the model training process, you can use method like hook.save_tensor() to track the changement of important variable and understand the internal process of the model training.
+For example, in the taining code of this projcet I use hook.save_tensor() to track batch_loss,batch_accuracy,epochs_accuracy and epochs_loss.
+
+```python
+# You should import necessary libraries like boto3, base64 and json
+def train(model, train_loader, criterion, optimizer, device, epochs, hook):
+    model.train()
+    hook.set_mode(smd.modes.TRAIN)
+
+    for e in range(epochs):
+        running_loss = 0
+        correct = 0
+        total = 0
+        for data, target in train_loader:
+            data = data.to(device)
+            target = target.to(device)
+
+            optimizer.zero_grad()
+            pred = model(data)
+            loss = criterion(pred, target)
+
+            hook.save_tensor("batch_loss", loss)
+            accuracy = (pred.argmax(dim=1) == target).float().mean().item()
+            hook.save_tensor("batch_accuracy", torch.tensor(accuracy))
+
+            running_loss += loss.item()
+            loss.backward()
+            optimizer.step()
+
+            pred = pred.argmax(dim=1, keepdim=True)
+            correct += pred.eq(target.view_as(pred)).sum().item()
+            total += target.size(0)
+        hook.save_tensor("epochs_accuracy", torch.tensor(correct / total))
+        hook.save_tensor("epochs_loss", torch.tensor(running_loss / len(train_loader)))
+        print(f"Epoch {e}: Loss {running_loss / len(train_loader)}, Accuracy {100 * correct / total}%")
+```
+
+<div style="display: flex;" align="center">
+ <img src="./image/epochs_accuracy.pngg" style="width: 50%; height: auto;">
+</div>
+
  
