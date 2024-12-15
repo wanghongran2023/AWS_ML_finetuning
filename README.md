@@ -5,7 +5,7 @@ In this project, I will demonstrate how to fine-tune an image classification mod
 
 # Project Setup Instructions
 
-This project will use Jupyter Notebook for running the code, and the training and inference of the model will be performed on the SageMaker platform. You can upload the Jupyter notebook file to a SageMaker JupyterLab or Notebook instance, or you can run it on your local machine or EC2 instance ( In that case, you may not be able to use the sagemaker.get_execution_role() function. Instead, you should hard-code the ARN of the role you create.)
+This project will use Jupyter Notebook (Python3) for running the code, and the training and inference of the model will be performed on the SageMaker platform. You can upload the Jupyter notebook file to a SageMaker JupyterLab or Notebook instance, or you can run it on your local machine or EC2 instance ( In that case, you may not be able to use the sagemaker.get_execution_role() function. Instead, you should hard-code the ARN of the role you create.)
 
 Regardless of where you run the code, you will need to prepare an IAM role with permissions for both Amazon S3 and SageMaker.
 <br/>
