@@ -31,9 +31,12 @@ And the insights are as follow:
 | Test Data | CIFAR-100 test dataset, which contains 10,000 images across 100 classes |
 | Hyperparameters | For the demo, we tuned three hyperparameters: learning_rate, batch_size, and epochs 10 times. The best hyperparameter set found was {'learning_rate': 0.017483127170473314, 'batch_size': 128, 'epochs': 70} |
 | Training Instance Type | ml.p3.2xlarge (1 NVIDIA Tesla V100 and 8 CPUs) |
-| Final Validation Accuracy | 40.71% |
 | Loss at Final Epoch | 1.5454 |
 | Final Training Accuracy | 58.19% |
+| Final Validation Accuracy | 40.71% |
+
+Training Loss:
+![Alt text](./image/batch_loss.png)
 
 
  
