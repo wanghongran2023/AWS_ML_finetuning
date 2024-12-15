@@ -137,9 +137,15 @@ For example, if we display the epochs_accuracy data in the code above, we will g
 </div>
 
 Compared to the batch_loss.png and batch_accuracy.png above, it is clear that the debugger does not track the epochs_accuracy changes as expected. This issue may have several causes. To identify the root cause, we can:
+
  - Check CloudWatch logs: AWS generates logs for every training job and saves them to CloudWatch. By reviewing these logs, we can determine if any errors occurred during the training process that might have affected data collection. This helps identify potential issues and troubleshoot problems more effectively.
 <div style="display: flex;" align="center">
  <img src="./image/training_cloudwatchlog.png" style="width: 90%; height: auto;">
 </div>
+
  - Verify the data points: Ensure that the collected data points are accurate and correctly recorded.
- - Inspect the debugger configuration: Double-check the debugger settings to confirm that the epochs_accuracy metric is being tracked correctly.
+   - Use `trial.tensor_names()` to check if the metric is being tracked. If the metric is listed, use `trial.tensor('epochs_accuracy').value(step)`
+to see how many data points have been recorded. In this case, only two data points were recorded.
+
+ - Check the debugger configuration: Double-check the debugger settings to confirm that the epochs_accuracy metric is being tracked correctly.
+   - In this project, the configuration is set as `hook_parameters={"train.save_interval": "50", "eval.save_interval": "10"}`. This means that during the training process, for epoch-level metrics, the debugger will record one data point every 50 epochs. Since the total number of epochs in this project is 70, only two data points will be recorded. This explains why the resulting image appears as a straight line.
