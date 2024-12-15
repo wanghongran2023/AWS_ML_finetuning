@@ -58,8 +58,33 @@ Based on the batch training loss and accuracy above, in order to improve the mod
    - ResNet-34 expects input images to be normalized with ImageNet statistics and resized to 224x224. However, the current dataset uses 32x32 images, which may degrade performance.  
    - Resizing the images and ensuring proper normalization can improve feature extraction and model accuracy.
  
- 
+<br/><br/>
+# Model Query
 
+To make prediction, you need to pass a json format payload with a image data that decode by based64, suppose the image is in s3 ,you can use the sample code as bellow:
 
+ ```python
+# You should import necessary libraries like boto3, base64 and json
+
+# Initialize SageMaker and S3 client
+sagemaker_runtime = boto3.client('sagemaker-runtime')
+s3_client = boto3.client('s3')
+
+# load image from s3
+image_data = (s3_client.get_object(Bucket=default_bucket, Key="test/bike_s_000457.png"))['Body'].read()
+
+# Encode the image data as Base64 and convert the payload dictionary to a JSON string
+payload = {"image": base64.b64encode(image_data).decode('utf-8')}
+payload_json = json.dumps(payload)
+
+# Invoke the SageMaker endpoint for inference
+response = sagemaker_runtime.invoke_endpoint(
+    EndpointName=predictor.endpoint_name,  # The name of the SageMaker endpoint
+    ContentType='application/json',        # Must specify the content type
+    Body=payload_json                      # Pass the JSON payload as the request body
+)
+```
+
+# About Sagemaker Debugger and Profiler
 
  
