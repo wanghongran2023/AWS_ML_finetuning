@@ -151,6 +151,7 @@ to see how many data points have been recorded. In this case, only two data poin
    - In this project, the configuration is set as `hook_parameters={"train.save_interval": "50", "eval.save_interval": "10"}`. This means that during the training process, for epoch-level metrics, the debugger will record one data point every 50 epochs. Since the total number of epochs in this project is 70, only two data points will be recorded. This explains why the resulting image appears as a straight line.
 
 <br/>
+
 # Other Porject Image
 <div style="display: flex;" align="center">
  <img src="./image/hpo-tuning.png" style="width: 90%; height: auto;">
