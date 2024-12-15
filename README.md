@@ -35,8 +35,10 @@ And the insights are as follow:
 | Final Training Accuracy | 58.19% |
 | Final Validation Accuracy | 40.71% |
 
+# Future Improvement
 <p align="center">
 <img src="./image/batch_loss.png" style="width: 50%; height: auto;">
+<img src="./image/batch_accuracy.png" style="width: 50%; height: auto;">
 </p>
 
 
