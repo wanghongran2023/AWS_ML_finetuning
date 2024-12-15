@@ -35,8 +35,10 @@ And the insights are as follow:
 | Final Training Accuracy | 58.19% |
 | Final Validation Accuracy | 40.71% |
 
+<p align="center">
 Training Loss:
-![Alt text](./image/batch_loss.png)
+<img src="./image/batch_loss.png" style="width: 50%; height: auto;">
+</p>
 
 
  
