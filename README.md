@@ -41,5 +41,21 @@ And the insights are as follow:
  <img src="./image/batch_accuracy.png" style="width: 40%; height: auto;">
 </div>
 
+Based on the batch training loss and accuracy above, in order to improve the model performance we can implement:
+ - Data Augmentation**:  
+   - The training accuracy fluctuates around 60%-70%, suggesting potential overfitting or poor generalization. Additionally, the training loss has stabilized around 1.5–2.0, but it does not improve further.  
+   - Data augmentation can increase the diversity of training samples, helping the model generalize better to unseen data and improving overall accuracy.
+
+ - Fine-Tune Hyperparameters:  
+   - Both the loss and accuracy curves show noisy behavior, which suggests that the learning rate might be too high or the batch size too small.  
+   - Fine-tuning these hyperparameters can help stabilize the training process.
+
+- Preprocessing and Normalization:  
+   - ResNet-34 expects input images to be normalized with ImageNet statistics and resized to 224x224. However, the current dataset uses 32x32 images, which may degrade performance.  
+   - Resizing the images and ensuring proper normalization can improve feature extraction and model accuracy.
+ 
+ 
+
+
 
  
