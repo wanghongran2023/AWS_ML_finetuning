@@ -12,7 +12,9 @@ Regardless of where you run the code, you will need to prepare an IAM role with 
 
 This project contains four code files:
 
- - train_and_deploy.ipynb: The Jupyter notebook used to prepare the data, train the model, perform hyperparameter tuning, and deploy the model.
- - hpo.py: The Python script used for hyperparameter optimization (HPO).
- - train_model.py: The Python script used to train the model. This file is similar to hpo.py, with the primary difference being that it includes additional code for SageMaker Debugger and Profiler, which are not present in hpo.py.
- - inference.py: The entry point for the SageMaker endpoint. Since we deploy a custom-trained model, this script helps process the input data, execute predictions, and send the response.
+| file name | description |
+| ---------- | ---------- |
+| train_and_deploy.ipynb | The Jupyter notebook used to prepare the data, train the model, perform hyperparameter tuning, and deploy the model. |
+| hpo.py | The Python script used for hyperparameter optimization (HPO). |
+| train_model.py | The Python script used to train the model. This file is similar to hpo.py, with the primary difference being that it includes additional code for SageMaker Debugger and Profiler, which are not present in hpo.py|
+| inference.py | The entry point for the SageMaker endpoint. Since we deploy a custom-trained model, this script helps process the input data, execute predictions, and send the response|
